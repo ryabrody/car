@@ -3,7 +3,12 @@ require File.join(File.dirname(__FILE__), '../lib/containers/window')
 
 class MyUnitTests < Test::Unit::TestCase
   def test_open
-    window = Container::Window.new(:state => Container::Enginge::STATE_CLOSE)
-    assert_equal(window.open, 'Fenster auf Fahrereseite (vorne) wurde geöffnet')
+    window = Container::Window.new(:state => Container::Window::STATE_CLOSE)
+    assert_equal(window.open, 'geöffnet')
+  end
+
+  def test_close
+    window = Container::Window.new(:state => Container::Window::STATE_OPEN)
+    assert_equal(window.close, 'geschlossen')
   end
 end
