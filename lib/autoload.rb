@@ -1,4 +1,6 @@
 module Container
-  autoload :Stack, $APP_ROOT + 'lib/containers/stack'
-  autoload :PriorityQueue, $APP_ROOT + 'lib/containers/priority_queue.rb'
+  autoload :Car, $APP_ROOT + 'lib/containers/car'
+  autoload :Engine, $APP_ROOT + 'lib/containers/engine'
+  autoload :Door, $APP_ROOT + 'lib/containers/door'
+  autoload :Window, $APP_ROOT + 'lib/containers/window'
 end
