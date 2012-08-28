@@ -1,8 +1,13 @@
 module Container
   class Car
+
+    attr_reader :engine, :door
+
     def initialize(attributes = {})
       @color = attributes[:color]
       @brand = attributes[:brand]
+      @engine = Engine.new
+      @door = Door.new
     end
 
     def build
@@ -15,6 +20,10 @@ module Container
 
     def slow_down
       "Auto wird gebremst"
+    end
+
+    def off
+      "#{engine.stop} #{door.window.close_all}"
     end
   end
 end

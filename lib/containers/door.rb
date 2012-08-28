@@ -1,16 +1,13 @@
 module Container
   class Door
-    POS_FRONT_LEFT = 'Fahrerseite (vorne)'
-    POS_FRONT_RIGHT = 'Beifahrerseite (vorne)'
-    POS_BACK_LEFT = 'Fahrerseite (hinten)'
-    POS_BACK_RIGHT = 'Beifahrerseite (hinten)'
+    attr_reader :window
 
-    def initialize(attributes = {})
-      @position = attributes[:position] || POS_FRONT_LEFT
+    def initialize
+      @window = Window.new
     end
 
-    def specific_door
-      "Fenster auf #{@position}"
+    def front_left
+      "Fenster auf Fahrerseite (vorne) wurde"
     end
   end
 end
