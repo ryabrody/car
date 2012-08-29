@@ -1,11 +1,20 @@
 module Container
   class Window
-    def open
-      "geöffnet"
+
+    def initialize
+      @state = 'geschlossen'
     end
 
-    def close_all
-      "(alle offenen Fenster werden automatisch geschlossen)"
+    def open
+      @state = "offen"
+    end
+
+    def close
+      @state = "geschlossen"
+    end
+
+    def open?
+      @state == "offen"
     end
   end
 end

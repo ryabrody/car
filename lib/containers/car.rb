@@ -1,13 +1,18 @@
 module Container
   class Car
 
-    attr_reader :engine, :door
+    attr_reader :engine, :doors
 
-    def initialize(attributes = {})
-      @color = attributes[:color]
-      @brand = attributes[:brand]
+    def initialize(brand, color)
+      @brand = brand
+      @color = color
       @engine = Engine.new
-      @door = Door.new
+      @doors = [
+                  Door.new('Fahrerseite (vorne)'),
+                  Door.new('Beifahrerseite (vorne)'),
+                  Door.new('Fahrerseite (hinten)'),
+                  Door.new('Beifahrerseite (hinten)')
+                ]
     end
 
     def build
@@ -23,7 +28,17 @@ module Container
     end
 
     def off
-      "#{engine.stop} #{door.window.close_all}"
+      close_all_open_windows
+      engine.stop
+    end
+
+    private
+
+    def close_all_open_windows
+     @doors.each do |door|
+        door.close_window if door.window.open?
+      end
+      "(alle offenen Fenster werden automatisch geschlossen)"
     end
   end
 end
