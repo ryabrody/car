@@ -7,6 +7,6 @@ car = Container::Car.new('Ferrari', 'rot')
 puts car.build
 puts car.engine.start
 puts car.start_up
-puts car.doors.first.close_window
+puts car.doors.first.open_window
 puts car.slow_down
 puts car.off
